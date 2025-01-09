@@ -8,7 +8,7 @@ from nltk.stem import PorterStemmer
 # nltk.download('stopwords')
 
 # Input text
-text = ""
+text = "Wake up to reality. Nothing ever goes as planned in this world. The longer you live, the more you realize that only pain, suffering, and futility exist in this reality."
 
 # Tokenization
 tokens = word_tokenize(text)
