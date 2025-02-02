@@ -6,11 +6,18 @@ import matplotlib.pyplot as plt
 # Load the dataset
 data = pd.read_csv('vacination_tweets.csv', encoding='latin1')
 
-# Perform sentiment analysis and categorize sentiments
-data['sentiment_category'] = data['text'].apply(
-    lambda x: 'positive' if TextBlob(str(x)).sentiment.polarity > 0 else 
-              'negative' if TextBlob(str(x)).sentiment.polarity < 0 else 'neutral'
-)
+# Define a function to classify sentiment
+def classify_sentiment(text):
+    sentiment_score = TextBlob(str(text)).sentiment.polarity
+    if sentiment_score > 0:
+        return 'positive'
+    elif sentiment_score < 0:
+        return 'negative'
+    else:
+        return 'neutral'
+
+# Apply the sentiment classification function to the 'text' column
+data['sentiment_category'] = data['text'].apply(classify_sentiment)
 
 # Generate word clouds
 def generate_wordcloud(category, color):
