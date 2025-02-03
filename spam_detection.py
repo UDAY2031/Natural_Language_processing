@@ -14,7 +14,7 @@ nltk.download('wordnet')
 from nltk.corpus import stopwords
 
 # Load dataset
-data = pd.read_csv('/content/spam.csv', encoding='latin-1')[['v1', 'v2']]
+data = pd.read_csv('spam.csv', encoding='latin-1')[['v1', 'v2']]
 data.columns = ['label', 'message']
 
 # Preprocess text (remove non-alphabetic characters, convert to lowercase, remove stopwords)
